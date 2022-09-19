@@ -1,0 +1,20 @@
+.header {
+	height: 8vh;
+	display: flex; /*가로로 쌓기*/
+	align-items: center; /*안에 내용을 가운대로 정렬*/
+	background-color: black;
+	position: sticky; /*스크롤위치에 따라 포지셔닝*/
+	top: 0; /*상단에 헤더가 항상 머물게 함*/
+	z-index: 100;
+	/*
+  컨텐츠가 겹칠 때 누가 상단에 있을지 결정하는 요소
+  -1~1000까지 있고 숫자가 높을수록 컨텐츠 위쪽으로 낮을수록 아래로 깔림
+  */
+}
+
+.header_logo {
+	width: 100px;
+	object-fit: contain; /*logo의 사이즈는 천차만별인데 object-fit: contain;을 사용해서 비율이 망가지지 않게 이미지를 조절*/
+	margin: 0 20px; /* 0은 상하의 마진, 20px은 좌우의 마진*/
+	margin-top: 15px;
+}
