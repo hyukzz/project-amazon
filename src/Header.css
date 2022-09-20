@@ -1,0 +1,75 @@
+.header {
+	height: 8vh;
+	display: flex; /*가로로 쌓기*/
+	align-items: center; /*안에 내용을 가운대로 정렬*/
+	background-color: black;
+	position: sticky; /*스크롤위치에 따라 포지셔닝*/
+	top: 0; /*상단에 헤더가 항상 머물게 함*/
+	z-index: 100;
+	/*
+  컨텐츠가 겹칠 때 누가 상단에 있을지 결정하는 요소
+  -1~1000까지 있고 숫자가 높을수록 컨텐츠 위쪽으로 낮을수록 아래로 깔림
+  */
+}
+
+.header_logo {
+	width: 100px;
+	object-fit: contain; /*logo의 사이즈는 천차만별인데 object-fit: contain;을 사용해서 비율이 망가지지 않게 이미지를 조절*/
+	margin: 0 20px; /* 0은 상하의 마진, 20px은 좌우의 마진*/
+	margin-top: 15px;
+}
+
+.header_search {
+	display: flex;
+	flex: 1; /*container가 차지하는 비율*/
+	align-items: center;
+	border-radius: 20px;
+}
+
+.header_searchInput {
+	height: 1.7vh;
+	/* height: 12px; */
+	padding: 10px;
+	border: none;
+	width: 100%;
+}
+
+.header_searchIcon {
+	background-color: #cd9042;
+	padding: 5px; /*안쪽여백 늘리기*/
+	height: 2vh;
+	/* height: 15px; */
+}
+
+.header_option {
+	display: flex;
+	flex-direction: column; /*위에서 아래로 값을 나열한다. 그이유는 span이기 때문이다. */
+	margin-left: 10px;
+	margin-right: 10px;
+	color: white;
+}
+
+.header_nav {
+	display: flex; /*옵션 3개를 순서대로 오른쪽으로 배치*/
+	justify-content: space-evenly; /*안의 옵션의 배치 넓이를 조절*/
+}
+
+.header_option_firstLine {
+	font-size: 10px;
+}
+
+.header_option_secondLine {
+	font-size: 13px;
+	font-weight: 800;
+	margin-top: 3px;
+}
+
+.header_option_basket {
+	display: flex;
+	align-items: center;
+	color: white;
+}
+.header_option_basketCount {
+	margin-left: 10px;
+	margin-right: 10px;
+}
