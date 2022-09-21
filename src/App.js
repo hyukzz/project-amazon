@@ -1,13 +1,33 @@
-import "./App.css";
 import Header from "./Header";
+import Home from "./Home";
+// import Basket from "./Basket";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
-		<div>
-			<Header />
+		<BrowserRouter>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<>
+							<Header />
+							<Home />
+						</>
+					}
+				/>
 
-			<h1>본문</h1>
-		</div>
+				<Route
+					path="/basket"
+					element={
+						<>
+							<Header />
+							{/* <Basket /> */}
+						</>
+					}
+				/>
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
