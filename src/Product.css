@@ -1,0 +1,47 @@
+.product {
+	display: flex;
+	flex-direction: column;
+	/* column: 열로 배치 (세로)*/
+	align-items: center;
+	justify-content: flex-end;
+	/* 순서대로 아이템을 배치 그러나 끝쪽으로 붙어있다.*/
+	margin: 10px;
+	padding: 20px;
+	width: 100%;
+	max-height: 400px;
+	/* product의 사이즈를 대충 400px로 잡았다.*/
+	min-width: 100px;
+	/* product의 최소 width은 100px이다 */
+	background-color: white;
+	z-index: 1;
+	/* home이미지가 -1이기 때문에 그위로 가기위해 더 큰 값인 1을 할당했다. */
+}
+
+.product_rating {
+	display: flex;
+}
+
+.product > img {
+	max-height: 200px;
+	width: 100%;
+	object-fit: contain;
+	margin-bottom: 15px;
+}
+
+.product > button {
+	background-color: #61dafb;
+	border: 1px solid;
+	border-color: #8768bf #a5a5f3 #61dafb;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.product_price {
+	margin-top: 10px;
+}
+
+.product_info {
+	height: 13vh;
+	/* height: 100px; */
+	margin-bottom: 15px;
+}
