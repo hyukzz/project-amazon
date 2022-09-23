@@ -1,11 +1,30 @@
 import "./Product.css";
 import { useNavigate } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
 
 function Product({ id, title, price, rating, image }) {
 	// const arr = Array(rating);
 	// console.log("arr", arr.fill("index"));
 	const navigate = useNavigate();
 
+	const [{ basket }, dispatch] = useStateValue();
+	//basket은 basket 정보를 가져오는 것 dispatch는 데이터를 보내는 것
+
+	const addToBasket = () => {
+		dispatch({
+			type: "ADD_TO_BASKET",
+			item: {
+				id: id,
+				title: title,
+				image: image,
+				price: price,
+				rating: rating,
+				//action.item으로 값을 넣어주는 것
+				//좌측 값은 명목, 우측 값은 데이터들
+			},
+		});
+	};
+	// console.log("basket", basket);
 	return (
 		<div className="product">
 			<div className="product_info">
@@ -39,7 +58,7 @@ function Product({ id, title, price, rating, image }) {
 			</div>
 
 			<img src={image} alt="" />
-			<button onClick={() => navigate("/basket")}>장바구니에 담기</button>
+			<button onClick={addToBasket}>장바구니에 담기</button>
 		</div>
 	);
 }
