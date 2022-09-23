@@ -30,8 +30,7 @@
 
 .product > button {
 	background-color: #61dafb;
-	border: 1px solid;
-	border-color: #8768bf #a5a5f3 #61dafb;
+	border: 1px solid #61dafb;
 	margin-top: 10px;
 	cursor: pointer;
 }
