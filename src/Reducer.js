@@ -28,6 +28,40 @@ const reducer = (state, action) => {
 				...state, //스프레드 신택스: 배열빼고, 배열안의 값만 가져오기
 				basket: [...state.basket, action.item],
 			};
+		case "REMOVE_FROM_BASKET":
+			/*
+      findIndex를 이용해서 basketItem.id와 제거했을 때 아이디 action.id가 동일했던 위치를 index에 넣어준다.
+      그리고 새로운 basket인 newBasket을 만들어준다. splice는 원본을 바꾸기 때문에 새로운 배열을 만들어주는 것 제거되도 상관이 없게하기 위해서
+      제거된 새로운 배열안의 index를 제외하고 남은 index를 return basket에 넣어준다.
+      하지만 findIndex로 제거하게 되면 동일한 id가 앞에 있으면 선택한 item이 아닌 앞에 있는 동일 id의 item이 제거되는 단점이있다. 
+      이를 해결하기 위해서는 redux를 사용하거나 좀 더 세세한 위치정보를 짜야할 필요가 있다.
+      */
+			// console.log(state);
+			// console.log(action);
+			const index = state.basket.findIndex(
+				basketItem => basketItem.id === action.id
+				/*
+        액션을 실행했을 때 id와 일치하는 basketItem의 아이디의 위치(index)를 찾아서 전달한다.
+        index변수는 동일한 위치의 정보가 담겨져 있다.
+        */
+			);
+			let newBasket = [...state.basket];
+
+			if (index >= 0) {
+				newBasket.splice(index, 1);
+				/*
+        splice는 원본 배열을 바꾸는 메서드 
+        splice(제거를 진행할 index, 몇 개를 제거할지)
+        */
+			} else {
+				console.warn(
+					" (id: " + action.id + ")이 장바구니에 존재하지 않습니다 "
+				);
+			}
+			return {
+				...state,
+				basket: newBasket,
+			};
 		default:
 			return state;
 	}
