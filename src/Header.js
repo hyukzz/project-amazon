@@ -23,6 +23,7 @@ function Header() {
 			<div className="header_nav">
 				<div className="header_option">
 					<span className="header_option_firstLine">안녕하세요</span>
+
 					<span className="header_option_secondLine">로그인하기</span>
 				</div>
 
@@ -36,7 +37,7 @@ function Header() {
 					<span className="header_option_secondLine">구독과좋아요</span>
 				</div>
 
-				<Link to="basket">
+				<Link to="/basket">
 					<div className="header_option">
 						<span className="header_option_basket">
 							<ShoppingBasket />
