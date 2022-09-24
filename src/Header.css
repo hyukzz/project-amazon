@@ -41,17 +41,17 @@
 	/* height: 15px; */
 }
 
+.header_nav {
+	display: flex; /*옵션 3개를 순서대로 오른쪽으로 배치*/
+	justify-content: space-evenly; /*안의 옵션의 배치 넓이를 조절*/
+}
+
 .header_option {
 	display: flex;
 	flex-direction: column; /*위에서 아래로 값을 나열한다. 그이유는 span이기 때문이다. */
 	margin-left: 10px;
 	margin-right: 10px;
 	color: white;
-}
-
-.header_nav {
-	display: flex; /*옵션 3개를 순서대로 오른쪽으로 배치*/
-	justify-content: space-evenly; /*안의 옵션의 배치 넓이를 조절*/
 }
 
 .header_option_firstLine {
@@ -69,6 +69,7 @@
 	align-items: center;
 	color: white;
 }
+
 .header_option_basketCount {
 	margin-left: 10px;
 	margin-right: 10px;
