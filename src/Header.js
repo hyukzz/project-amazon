@@ -1,10 +1,22 @@
 import "./Header.css";
 import { ShoppingBasket, Search } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
+import { auth } from "./firebase";
 
 function Header() {
-	const [{ basket }, dispatch] = useStateValue();
+	/* 
+	&&는 if(!user){"/login"} 
+	즉, 참이면 설정된 값 반환 거짓이면 아무것도 안한다.
+	*/
+	const navigate = useNavigate();
+	const [{ basket, user }, dispatch] = useStateValue();
+
+	const handleAuth = () => {
+		if (user) {
+			auth.signOut();
+		}
+	};
 
 	return (
 		<div className="header">
@@ -24,7 +36,11 @@ function Header() {
 				<div className="header_option">
 					<span className="header_option_firstLine">안녕하세요</span>
 
-					<span className="header_option_secondLine">로그인하기</span>
+					<Link to={!user && "/login"} className="homeLogin">
+						<span onClick={handleAuth} className="header_option_secondLine">
+							{user ? "로그아웃" : "로그인"}
+						</span>
+					</Link>
 				</div>
 
 				<div className="header_option">
