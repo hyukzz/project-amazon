@@ -4,7 +4,7 @@ import Subtotal from "./Subtotal";
 import { useStateValue } from "./StateProvider";
 
 function Basket() {
-	const [{ basket }, dispatch] = useStateValue();
+	const [{ basket, user }, dispatch] = useStateValue();
 	//매핑을 해준다. 새로운 배열을 만들어 주는 것
 	return (
 		<div className="basket">
@@ -16,7 +16,7 @@ function Basket() {
 				/>
 
 				<div>
-					<h2 className="basket_title">장바구니</h2>
+					<h2 className="basket_title">{user?.email}님의 장바구니입니다.</h2>
 					{
 						basket.map(item => (
 							<BasketProduct

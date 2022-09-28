@@ -1,5 +1,6 @@
 export const initialState = {
 	basket: [],
+	user: null,
 };
 
 export const getBasketTotal = basket =>
@@ -61,6 +62,16 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				basket: newBasket,
+			};
+
+		case "SET_USER":
+			return {
+				...state,
+				user: action.user,
+				/*
+        기본 값으로 user:null 값이 있는데 
+        App.js에서 보내준 action의 정보를 바꿔서 넣어준다.
+        */
 			};
 		default:
 			return state;

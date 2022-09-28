@@ -1,11 +1,9 @@
 import "./Product.css";
-import { useNavigate } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
 function Product({ id, title, price, rating, image }) {
 	// const arr = Array(rating);
 	// console.log("arr", arr.fill("index"));
-	const navigate = useNavigate();
 
 	const [{ basket }, dispatch] = useStateValue();
 	//basket은 basket 정보를 가져오는 것 dispatch는 데이터를 보내는 것
