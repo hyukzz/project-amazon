@@ -34,7 +34,7 @@
 .login_container > p {
 	margin-top: 15px;
 	margin-bottom: 10px;
-	font-size: 10px;
+	font-size: 13px;
 }
 
 .login_signInButton {
@@ -44,6 +44,7 @@
 	height: 30px;
 	border: 1px solid #f0c14b;
 	margin-top: 10px;
+	margin-bottom: 3px;
 	cursor: pointer;
 }
 
