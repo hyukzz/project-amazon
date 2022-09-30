@@ -1,6 +1,6 @@
 import "./Header.css";
 import { ShoppingBasket, Search } from "@material-ui/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 
@@ -9,7 +9,7 @@ function Header() {
 	&&는 if(!user){"/login"} 
 	즉, 참이면 설정된 값 반환 거짓이면 아무것도 안한다.
 	*/
-	const navigate = useNavigate();
+
 	const [{ basket, user }, dispatch] = useStateValue();
 
 	const handleAuth = () => {
