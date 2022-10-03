@@ -2,16 +2,24 @@ import Header from "./Header";
 import Home from "./Home";
 import Basket from "./Basket";
 import Login from "./Login";
+import Payment from "./Payment";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js/pure";
+import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders";
+
+const promise = loadStripe(
+	"pk_test_51LmvqNJfTBlMq57IucczObbj2iJBf9OcgYm6s9I8mcwMFLjZLX3ITLMfuzrmrY9VlTuU5sZ1tktyZPEE2KQJ8kN0008nK3bEF0"
+);
 
 function App() {
 	const [{}, dispatch] = useStateValue();
 	useEffect(() => {
 		auth.onAuthStateChanged(authUser => {
-			console.log("사용자", authUser);
+			// console.log("사용자", authUser);
 			if (authUser) {
 				dispatch({
 					type: "SET_USER",
@@ -58,6 +66,28 @@ function App() {
 						<>
 							<Header />
 							<Basket />
+						</>
+					}
+				/>
+
+				<Route
+					path="/payment"
+					element={
+						<>
+							<Header />
+							<Elements stripe={promise}>
+								<Payment />
+							</Elements>
+						</>
+					}
+				/>
+
+				<Route
+					path="/orders"
+					element={
+						<>
+							<Header />
+							<Orders />
 						</>
 					}
 				/>

@@ -29,6 +29,13 @@ const reducer = (state, action) => {
 				...state, //스프레드 신택스: 배열빼고, 배열안의 값만 가져오기
 				basket: [...state.basket, action.item],
 			};
+
+		case "Empty_BASKET":
+			return {
+				...state,
+				basket: [],
+			};
+
 		case "REMOVE_FROM_BASKET":
 			/*
       findIndex를 이용해서 basketItem.id와 제거했을 때 아이디 action.id가 동일했던 위치를 index에 넣어준다.
