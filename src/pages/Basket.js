@@ -1,7 +1,8 @@
-import "./Basket.css";
-import BasketProduct from "./BasketProduct";
-import Subtotal from "./Subtotal";
-import { useStateValue } from "./StateProvider";
+import "../styles/Basket.css";
+
+import BasketProduct from "../components/BasketProduct";
+import Subtotal from "../components/Subtotal";
+import { useStateValue } from "../stores/StateProvider";
 
 function Basket() {
 	const [{ basket, user }, dispatch] = useStateValue();

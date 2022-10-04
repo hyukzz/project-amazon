@@ -1,7 +1,8 @@
-import "./BasketProduct.css";
-import { useStateValue } from "./StateProvider";
+import "../styles/BasketProduct.css";
 
-function BasketProduct({ id, title, price, rating, image }) {
+import { useStateValue } from "../stores/StateProvider";
+
+function BasketProduct({ id, title, price, rating, image, hideButton }) {
 	const [{ basket }, dispatch] = useStateValue();
 
 	const removeFromBasket = () => {
@@ -29,7 +30,9 @@ function BasketProduct({ id, title, price, rating, image }) {
 							<p>★</p>
 						))}
 				</div>
-				<button onClick={removeFromBasket}>장바구니에서 제거하기</button>
+				{!hideButton && (
+					<button onClick={removeFromBasket}>장바구니에서 제거하기</button>
+				)}
 			</div>
 		</div>
 	);

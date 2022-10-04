@@ -1,15 +1,16 @@
-import Header from "./Header";
-import Home from "./Home";
-import Basket from "./Basket";
-import Login from "./Login";
-import Payment from "./Payment";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Basket from "./pages/Basket";
+import Login from "./components/Login";
+import Payment from "./pages/Payment";
+import Orders from "./pages/Orders";
+import { auth } from "./stores/firebase";
+import { useStateValue } from "./stores/StateProvider";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
-import { auth } from "./firebase";
-import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js/pure";
 import { Elements } from "@stripe/react-stripe-js";
-import Orders from "./Orders";
 
 const promise = loadStripe(
 	"pk_test_51LmvqNJfTBlMq57IucczObbj2iJBf9OcgYm6s9I8mcwMFLjZLX3ITLMfuzrmrY9VlTuU5sZ1tktyZPEE2KQJ8kN0008nK3bEF0"
@@ -83,7 +84,7 @@ function App() {
 				/>
 
 				<Route
-					path="/orders"
+					path="/order"
 					element={
 						<>
 							<Header />

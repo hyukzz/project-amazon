@@ -1,14 +1,16 @@
+import "../styles/Payment.css";
+
+import BasketProduct from "../components/BasketProduct";
+import { useStateValue } from "../stores/StateProvider";
+import { getBasketTotal } from "../stores/Reducer";
+import { db } from "../stores/firebase";
+import axios from "../stores/axios";
+
 import { useEffect, useState } from "react";
-import "./Payment.css";
-import BasketProduct from "./BasketProduct";
 import { Link, useNavigate } from "react-router-dom";
-import { useStateValue } from "./StateProvider";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { getBasketTotal } from "./Reducer";
-import CurrencyFormat from "react-currency-format";
-import axios from "./axios";
-import { db } from "./firebase";
 import { ShoppingBasket } from "@material-ui/icons";
+import CurrencyFormat from "react-currency-format";
 
 function Payment() {
 	const [{ basket, user }, dispatch] = useStateValue();
@@ -31,12 +33,11 @@ function Payment() {
 				url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
 			});
 			setClientSecret(response.data.clientSecret);
+			//어떤 유저인지 고유한 정보를 가져온다.
 		};
 
 		getClientSecret();
 	}, [basket]);
-
-	console.log("client 비밀은 다음과 같아요", clientSecret);
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -71,7 +72,7 @@ function Payment() {
 					type: "EMPTY_BASKET",
 				});
 
-				navigate("/orders", { replace: true });
+				navigate("/order");
 			});
 	};
 

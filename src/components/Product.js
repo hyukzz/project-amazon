@@ -1,5 +1,6 @@
-import "./Product.css";
-import { useStateValue } from "./StateProvider";
+import "../styles/Product.css";
+
+import { useStateValue } from "../stores/StateProvider";
 
 function Product({ id, title, price, rating, image }) {
 	// const arr = Array(rating);
