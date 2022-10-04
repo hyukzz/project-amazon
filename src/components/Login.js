@@ -1,7 +1,9 @@
-import "./Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import "../styles/Login.css";
+
+import { auth } from "../stores/firebase";
+
 import { useState } from "react";
-import { auth } from "./firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
 	const [email, setEmail] = useState("");

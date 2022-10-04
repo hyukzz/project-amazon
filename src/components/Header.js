@@ -1,8 +1,10 @@
-import "./Header.css";
-import { ShoppingBasket, Search } from "@material-ui/icons";
+import "../styles/Header.css";
+
+import { useStateValue } from "../stores/StateProvider";
+import { auth } from "../stores/firebase";
+
 import { Link } from "react-router-dom";
-import { useStateValue } from "./StateProvider";
-import { auth } from "./firebase";
+import { ShoppingBasket, Search } from "@material-ui/icons";
 
 function Header() {
 	/* 
@@ -34,7 +36,9 @@ function Header() {
 
 			<div className="header_nav">
 				<div className="header_option">
-					<span className="header_option_firstLine">안녕하세요</span>
+					<span className="header_option_firstLine">
+						{!user ? "게스트" : user.email}
+					</span>
 
 					<Link to={!user && "/login"} className="homeLogin">
 						<span onClick={handleAuth} className="header_option_secondLine">
@@ -45,7 +49,9 @@ function Header() {
 
 				<div className="header_option">
 					<span className="header_option_firstLine">돌아가기</span>
-					<span className="header_option_secondLine">주문하기</span>
+					<Link to={"/order"} className="homeOrder">
+						<span className="header_option_secondLine">주문하기</span>
+					</Link>
 				</div>
 
 				<div className="header_option">

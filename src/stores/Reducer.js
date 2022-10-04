@@ -26,7 +26,11 @@ const reducer = (state, action) => {
 	switch (action.type) {
 		case "ADD_TO_BASKET":
 			return {
-				...state, //스프레드 신택스: 배열빼고, 배열안의 값만 가져오기
+				...state,
+				/*
+				스프레드 신택스: 배열빼고, 배열안의 값만 가져오기
+				...state는 []을 빼고 그안에 있는 값만 가져온다.
+				*/
 				basket: [...state.basket, action.item],
 			};
 
@@ -49,7 +53,7 @@ const reducer = (state, action) => {
 			const index = state.basket.findIndex(
 				basketItem => basketItem.id === action.id
 				/*
-        액션을 실행했을 때 id와 일치하는 basketItem의 아이디의 위치(index)를 찾아서 전달한다.
+        액션을 실행했을 때 첫번 째로 id와 일치하는 basketItem의 아이디의 위치(index)를 찾아서 전달한다.
         index변수는 동일한 위치의 정보가 담겨져 있다.
         */
 			);

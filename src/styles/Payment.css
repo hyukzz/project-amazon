@@ -59,4 +59,10 @@
 	font-weight: bolder;
 	margin-top: 10px;
 	color: #111111;
+	cursor: pointer;
+}
+
+.payment_details > form > div > button:disabled {
+	opacity: 0.2;
+	cursor: not-allowed;
 }
