@@ -4,13 +4,9 @@
 
 ## 배포 링크
 
----
-
 https://project-amazon-1ifygzyse-hyukzz.vercel.app/
 
 ## 설치 방법
-
----
 
 ```
 git clone https://github.com/hyukzz/project-amazon.git
@@ -26,6 +22,6 @@ npm start
 
 ## 설명
 
----
+노션에서 상세내용 확인가능합니다.
 
 https://www.notion.so/younhyuk/8555a2201c014d049186c699f275545a?v=5b434bcfb9b74623aa0f7ab0de5a8cc1
