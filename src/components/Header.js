@@ -55,8 +55,8 @@ function Header() {
 				</div>
 
 				<div className="header_option">
-					<span className="header_option_firstLine">반가워요</span>
-					<span className="header_option_secondLine">구독과좋아요</span>
+					<span className="header_option_firstLine">hyukzz</span>
+					<span className="header_option_secondLine">반갑습니다</span>
 				</div>
 
 				<Link to="/basket">
